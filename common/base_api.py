@@ -42,10 +42,11 @@ class SQL():
         self.close_base()
         return result
 
-    def select_all(self,table_name='case'):
+    def select_all(self,table_name='testcase'):
         cursors = self.creat_connect()
-        cursors.execute('select * from %s"' % (table_name))
+        cursors.execute('select * from %s' % (table_name))
         all_result = cursors.fetchall()
+        return all_result
         cursors.close()
         self.close_base()
 
@@ -53,3 +54,4 @@ class SQL():
 if __name__ == '__main__':
 
     SQL().select_one(field_name='url',value_name='csdn.net')
+    print(SQL().select_all())
