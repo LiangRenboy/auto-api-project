@@ -7,7 +7,7 @@ config_path = os.getcwd()
 file_path = os.path.dirname(config_path)
 config_file = file_path + '\\configfile.ini'
 conf = configparser.ConfigParser()
-conf.read(config_file)
+conf.read(config_file,encoding='utf-8')
 
 host = conf.get('database','host')
 user = conf.get('database','user')
@@ -46,9 +46,9 @@ class SQL():
         cursors = self.creat_connect()
         cursors.execute('select * from %s' % (table_name))
         all_result = cursors.fetchall()
-        return all_result
         cursors.close()
         self.close_base()
+        return all_result
 
 
 if __name__ == '__main__':
