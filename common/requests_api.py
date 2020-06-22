@@ -7,7 +7,7 @@ config_path = os.getcwd()
 file_path = os.path.dirname(config_path)
 config_file = file_path + '\\configfile.ini'
 conf = configparser.ConfigParser()
-conf.read(config_file)
+conf.read(config_file,encoding='utf-8')
 
 url_head = conf.get('requests_setting','url_head')
 

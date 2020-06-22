@@ -12,3 +12,4 @@
 
 表设计
 字段    CASE_ID    TITLE    URL    METHOD    DATA    ASSERT    STATUS    TOKEN
+20200622
