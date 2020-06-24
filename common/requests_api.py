@@ -5,7 +5,9 @@ import os
 
 config_path = os.getcwd()
 file_path = os.path.dirname(config_path)
-config_file = file_path + '\\configfile.ini'
+
+config_file = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '\\configfile.ini'
+
 conf = configparser.ConfigParser()
 conf.read(config_file, encoding='utf-8')
 url_head = conf.get('requests_setting', 'url_head')

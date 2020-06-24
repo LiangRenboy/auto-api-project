@@ -1,5 +1,5 @@
 import unittest
-from common.requests_api import auto_get,auto_post
+from common.requests_api import auto_get, auto_post
 
 
 class TestBaidu(unittest.TestCase):
@@ -23,7 +23,7 @@ class TestBaidu(unittest.TestCase):
         t = auto_post(url=url, data=data)
         print(t[1])
 
-    # @unittest.skip
+    @unittest.skip
     def test_003(self):
         unittest.TestCase.fail()
 
