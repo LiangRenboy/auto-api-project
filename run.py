@@ -16,6 +16,6 @@ if __name__ == '__main__':
     file_name = now_time + '_result.html'
     file_path = report_path + '\\' + file_name
     fp = open(file_path, 'a', encoding='utf-8')
-    runner = HTMLTestRunner(output='测试报告', stream=fp, report_title='测试报告', descriptions='用例执行情况')
+    runner = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
     runner.run(test_case)
     fp.close()

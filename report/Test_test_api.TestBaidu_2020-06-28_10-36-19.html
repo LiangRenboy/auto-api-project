@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">测试报告</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-06-24 17:35:04</p>
-                <p class='attribute'><strong>Duration: </strong>0:00:00</p>
-                <p class='attribute'><strong>Status: </strong>Error: 1</p>
+                <p class='attribute'><strong>Start Time: </strong>2020-06-28 10:36:19</p>
+                <p class='attribute'><strong>Duration: </strong>0:00:08</p>
+                <p class='attribute'><strong>Status: </strong>Pass: 1, Error: 2</p>
             </div>
         </div>
         <div class="row">
@@ -21,14 +21,27 @@
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>unittest.loader.</th>
+                            <th>test</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         
+                            <tr class='success'>
+                                <td class="col-xs-9">test_001 (test_api.TestBaidu)</td>
+                                <td class="col-xs-3">
+                                    <span class="label label-success">
+                                        
+                                            Pass
+                                        
+                                    </span>
+                                    
+                                </td>
+                            </tr>
+                            
+                        
                             <tr class='warning'>
-                                <td class="col-xs-9">test_api (unittest.loader._FailedTest)</td>
+                                <td class="col-xs-9">test_002 (test_api.TestBaidu)</td>
                                 <td class="col-xs-3">
                                     <span class="label label-warning">
                                         
@@ -43,23 +56,30 @@
                             
                                 <tr style="display:none;">
                                     <td class="col-xs-9">
-                                        <p>ImportError</p>
-                                        <p>Failed to import test module: test_api
-Traceback (most recent call last):
-  File "D:\办公软件\python\lib\unittest\loader.py", line 434, in _find_test_path
-    module = self._get_module_from_name(name)
-  File "D:\办公软件\python\lib\unittest\loader.py", line 375, in _get_module_from_name
-    __import__(name)
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_api.py", line 3, in <module>
-    from common import requests_api
-  File "C:\Users\小米笔记本\Desktop\全篇\common\requests_api.py", line 11, in <module>
-    url_head = conf.get('requests_setting', 'url_head')
-  File "D:\办公软件\python\lib\configparser.py", line 780, in get
-    d = self._unify_values(section, vars)
-  File "D:\办公软件\python\lib\configparser.py", line 1146, in _unify_values
-    raise NoSectionError(section) from None
-configparser.NoSectionError: No section: 'requests_setting'
-</p>
+                                        <p>JSONDecodeError</p>
+                                        <p>Expecting value: line 2 column 1 (char 1)</p>
+                                    </td> 
+                                </tr>
+                            
+                        
+                            <tr class='warning'>
+                                <td class="col-xs-9">test_003 (test_api.TestBaidu)</td>
+                                <td class="col-xs-3">
+                                    <span class="label label-warning">
+                                        
+                                            Error
+                                        
+                                    </span>
+                                    
+                                        &nbsp<button class="btn btn-default btn-xs">View</button>
+                                    
+                                </td>
+                            </tr>
+                            
+                                <tr style="display:none;">
+                                    <td class="col-xs-9">
+                                        <p>TypeError</p>
+                                        <p>fail() missing 1 required positional argument: 'self'</p>
                                     </td> 
                                 </tr>
                             
@@ -69,7 +89,7 @@ configparser.NoSectionError: No section: 'requests_setting'
                                Total Test Runned: 
                             </td>
                             <td>
-                                <span>Error: 1</span>
+                                <span>Pass: 1, Error: 2</span>
                             </td>
                         </tr>
                     </tbody>

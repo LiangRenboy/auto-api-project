@@ -23,7 +23,7 @@ class TestBaidu(unittest.TestCase):
         t = auto_post(url=url, data=data)
         print(t[1])
 
-    @unittest.skip
+
     def test_003(self):
         unittest.TestCase.fail()
 
