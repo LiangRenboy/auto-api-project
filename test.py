@@ -8,21 +8,13 @@ def catch_exception(func):
         try:
             return func(*args, **kwargs)
         except Exception as e:
-            print(func.__name__, e)
+            print('[%s]: %s' % (func.__name__, e))
     return wrapper
 
 
 @catch_exception
 def testdemo():
-    open(filename, 'a')
     print(123 + "测试")
 
 
 testdemo()
-
-
-def add():
-    open(filename,'a')
-
-
-print(callable(add))
