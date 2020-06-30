@@ -1,4 +1,4 @@
-import unittest
+import unittest,time
 from common.requests_api import auto_get, auto_post
 
 
@@ -16,12 +16,14 @@ class TestBaidu(unittest.TestCase):
         params = {'stu_name': '黑黑'}
         response = auto_get(url=url, params=params)
         print(response[1])
+        time.sleep(5)
 
     def test_002(self):
         url = '/api/user/login'
         data = {'username': 'niuhanyang', 'passwd': 'aA123456'}
         t = auto_post(url=url, data=data)
         print(t[1])
+        time.sleep(5)
 
 
     def test_003(self):
