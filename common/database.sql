@@ -1,5 +1,6 @@
-CREATE TABLE `case` (
+CREATE TABLE `testcase` (
   `case_id` int(255) NOT NULL,
+  `case_num` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `method` varchar(255) NOT NULL,
