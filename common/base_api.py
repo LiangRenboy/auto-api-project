@@ -7,12 +7,12 @@ config_path = os.getcwd()
 file_path = os.path.dirname(config_path)
 config_file = file_path + '\\configfile.ini'
 conf = configparser.ConfigParser()
-conf.read(config_file,encoding='utf-8')
+conf.read(config_file, encoding='utf-8')
 
-host = conf.get('database','host')
-user = conf.get('database','user')
-password = conf.get('database','password')
-base_name = conf.get('database','base_name')
+host = conf.get('database', 'host')
+user = conf.get('database', 'user')
+password = conf.get('database', 'password')
+base_name = conf.get('database', 'base_name')
 
 
 class SQL(object):
