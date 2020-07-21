@@ -26,9 +26,9 @@ class SQL(object):
     def close_base(self):
         self.connection.close()
 
-    def select_one(self, table_name='testcase',field_name='case_id',value_name='1'):
+    def select_one(self, table_name='testcase', field_name='case_id', value_name='1'):
         cursors = self.creat_connect()
-        cursors.execute('select * from %s where %s = "%s"' % (table_name,field_name,value_name))
+        cursors.execute('select * from %s where %s = "%s"' % (table_name, field_name, value_name))
         result = cursors.fetchall()
         cursors.close()
         self.close_base()
@@ -44,5 +44,5 @@ class SQL(object):
 
 
 if __name__ == '__main__':
-    print(SQL().select_one(field_name='url',value_name='/api/user/stu_info'))
+    print(SQL().select_one(field_name='url', value_name='/api/user/stu_info'))
     print(SQL().select_all()[2])

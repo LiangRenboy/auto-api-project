@@ -1,0 +1,15 @@
+2020-07-21 18:11:18.099 | WARNING  | __main__:<module>:3 - ws
+2020-07-21 18:11:18.100 | ERROR    | __main__:<module>:11 - An error has been caught in function '<module>', process 'MainProcess' (14744), thread 'MainThread' (12060):
+Traceback (most recent call last):
+
+> File "C:/Users/小米笔记本/Desktop/全篇/logs/test.py", line 11, in <module>
+    print(add(1, 't'))
+          └ <function add at 0x00000272800AED08>
+
+  File "C:/Users/小米笔记本/Desktop/全篇/logs/test.py", line 8, in add
+    return a + b
+           │   └ 't'
+           └ 1
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2020-07-21 18:11:18.108 | ERROR    | __main__:<module>:14 - error!!!
