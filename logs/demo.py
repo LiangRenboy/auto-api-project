@@ -1,3 +1,5 @@
 from logs.logsfile import logger
 
-logger.error('demo')
+
+logger.info('info')
+# Logging().error('error')
