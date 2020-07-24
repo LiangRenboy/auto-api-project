@@ -1,58 +1,7 @@
-2020-07-23 18:42:20.667 | INFO     | common.requests_api:auto_get:17 - 发生异常：HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=&sign= (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000120AC6CEE48>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:44:03.970 | INFO     | common.requests_api:auto_get:17 - 发生异常：HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=&sign= (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018C81E6EF98>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:46:12.180 | INFO     | common.requests_api:auto_get:17 - 发生异常：HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=&sign= (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026B21ABFDD8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:54:37.405 | INFO     | common.requests_api:auto_get:18 - 发生异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=&sign= (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016FB4C8EF60>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:54:46.907 | INFO     | common.requests_api:auto_get:18 - 发生异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000261BF0E17F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:57:53.209 | INFO     | common.requests_api:auto_get:17 - 发生异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //doc.nnzhp.cn/index.php?s=/5&page_id=17 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A16FA26128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 18:58:51.859 | INFO     | common.requests_api:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:00:09.880 | INFO     | common.requests_api:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:00:09.881 | SUCCESS  | common.requests_api:auto_get:19 - 接口http://api.nnzhp.cn/api/user/stu_info返回数据
-2020-07-23 19:00:36.680 | INFO     | common.requests_api:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:00:36.680 | SUCCESS  | common.requests_api:auto_get:19 - 接口返回数据http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:00:45.973 | INFO     | common.requests_api:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:00:45.973 | SUCCESS  | common.requests_api:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:01:51.400 | INFO     | common.requests_api:auto_get:17 - 发生异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B4715D7C18>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:02:26.607 | INFO     | common.requests_api:auto_get:17 - 接口发生异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F2A20F9F98>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:03:14.764 | INFO     | common.requests_api:auto_get:17 - 接口发生异常:http://api.nnzhp.cnhttp://api.nnzhp.cn/api/product/choice:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DCAEFF6080>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:03:40.911 | INFO     | common.requests_api:auto_get:17 - 接口发生异常:http://api.nnzhp.cnhttp://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B1626C72E8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:06:19.809 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:06:19.809 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:06:19.906 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:06:19.907 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:06:31.179 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:06:31.179 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:06:31.274 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:06:31.275 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:07:09.438 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:07:09.438 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:07:09.535 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:07:09.535 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:<Response [200]>
-2020-07-23 19:07:18.931 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:07:18.932 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:07:19.008 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:07:19.008 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:{'error_code': 0, 'login_info': {'login_time': '20200723190719', 'sign': 'df145a08cb94eaaf762c0b1398902b56', 'userId': 47749}}
-2020-07-23 19:07:53.816 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:07:53.819 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:{
-        "error_code": 0,
-        "stu_info": [
-                {
-                        "id": 6154,
-                        "name": "黑黑",
-                        "sex": "男",
-                        "age": 28,
-                        "addr": "河南省济源市北海大道32号",
-                        "grade": "天蝎座",
-                        "phone": "18512582946",
-                        "gold": 100
-                }
-        ]
-}
-2020-07-23 19:07:53.908 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:07:53.908 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:{'error_code': 0, 'login_info': {'login_time': '20200723190753', 'sign': 'df145a08cb94eaaf762c0b1398902b56', 'userId': 47749}}
-2020-07-23 19:08:27.999 | INFO     | __main__:auto_get:15 - 正在请求接口:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:08:28.000 | SUCCESS  | __main__:auto_get:19 - 接口返回数据:http://api.nnzhp.cn/api/user/stu_info
-2020-07-23 19:08:28.079 | INFO     | __main__:auto_post:28 - 正在请求接口:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:08:28.080 | SUCCESS  | __main__:auto_post:32 - 接口返回数据:http://api.nnzhp.cn/api/user/login
-2020-07-23 19:08:36.096 | INFO     | common.requests_api:auto_get:17 - 接口发生异常:http://api.nnzhp.cnhttp://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000025FAE375198>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:09:08.567 | INFO     | common.requests_api:auto_get:17 - 接口发生异常:http://api.nnzhp.cnhttp://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B5D89BDF60>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
-2020-07-23 19:09:19.534 | WARNING  | common.requests_api:auto_get:17 - 接口发生异常:http://api.nnzhp.cnhttp://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cnhttp', port=80): Max retries exceeded with url: //api.nnzhp.cn/api/product/choice?userid=test&sign=test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019627867048>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2020-07-24 18:44:41.813 | WARNING  | __main__:read_conf:33 - ini配置文件缺少test节点
+2020-07-24 18:44:41.815 | WARNING  | __main__:read_conf:33 - ini配置文件缺少test节点
+2020-07-24 18:44:41.816 | WARNING  | __main__:write_conf:47 - ini配置文件缺少test节点
+2020-07-24 18:44:41.816 | WARNING  | __main__:write_conf:49 - ini配置文件添加test节点成功
+2020-07-24 18:44:41.818 | SUCCESS  | __main__:sava_conf:57 - 正在打开文件，准备写入数据:C:\Users\小米笔记本\Desktop\全篇\configfile.ini
+2020-07-24 18:44:41.819 | SUCCESS  | __main__:sava_conf:59 - 数据写入文件成功:C:\Users\小米笔记本\Desktop\全篇\configfile.ini
+2020-07-24 18:44:41.820 | SUCCESS  | __main__:sava_conf:61 - 关闭文件:C:\Users\小米笔记本\Desktop\全篇\configfile.ini
