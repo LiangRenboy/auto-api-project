@@ -39,27 +39,38 @@ class SQL(object):
     def select_one(self, table_name='testcase', field_name='case_id', value_name='1'):
         cursors = self.creat_connect()
         sql = 'select * from %s where %s = "%s"' % (table_name, field_name, value_name)
-        cursors.execute(sql)
-        logger.success('执行查询语句:{sql}', sql=sql)
-        result = cursors.fetchall()
-        logger.success('返回查询数据:{result}', result=result)
-        cursors.close()
-        self.close_base()
-        return result
+        try:
+            cursors.execute(sql)
+            logger.success('执行查询SQL语句:{sql}', sql=sql)
+        except BaseException as e:
+            logger.warning('SQL语句执行异常，请检查SQL语句:{sql},异常:{e}', sql=sql, e=e)
+        else:
+            result = cursors.fetchall()
+            logger.success('数据库返回查询数据:{result}', result=result)
+            return result
+        finally:
+            cursors.close()
+            self.close_base()
 
     @logger.catch()
     def select_all(self, table_name='testcase'):
         cursors = self.creat_connect()
         sql = 'select * from %s' % table_name
-        cursors.execute(sql)
-        logger.success('执行查询sql语句:{sql}', sql=sql)
-        all_result = cursors.fetchall()
-        logger.success('返回查询数据:{all_result}', all_result=all_result)
-        cursors.close()
-        self.close_base()
-        return all_result
+        try:
+            cursors.execute(sql)
+            logger.success('执行查询SQL语句:{sql}', sql=sql)
+        except BaseException as e:
+            logger.warning('SQL语句执行异常，请检查SQL语句:{sql},异常:{e}', sql=sql, e=e)
+        else:
+            all_result = cursors.fetchall()
+            logger.success('数据库返回查询数据:{all_result}', all_result=all_result)
+            return all_result
+        finally:
+            cursors.close()
+            self.close_base()
 
 
 if __name__ == '__main__':
     SQL().select_one(field_name='url', value_name='/api/user/stu_info')
     SQL().select_all()[2]
+    SQL().select_all(table_name="testcase_cjxm")

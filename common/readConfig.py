@@ -28,9 +28,9 @@ class WRConfigFile(object):
                 result = self.conf.get(section=section, option=option)
                 return result
             else:
-                logger.warning('ini配置文件{sections}节点缺少{options}', sections=section, options=option)
+                logger.warning('ini配置文件{sections}节点缺少{options},无法查询数据', sections=section, options=option)
         else:
-            logger.warning('ini配置文件缺少{sections}节点', sections=section)
+            logger.warning('ini配置文件缺少{sections}节点,无法查询数据', sections=section)
 
     @logger.catch()
     def write_conf(self, section=None, option=None, value=''):
@@ -46,7 +46,7 @@ class WRConfigFile(object):
         if not section_values:
             logger.warning('ini配置文件缺少{sections}节点', sections=section)
             self.conf.add_section(section)
-            logger.warning('ini配置文件添加{sections}节点成功', sections=section)
+            logger.success('ini配置文件添加{sections}节点成功', sections=section)
         self.conf.set(section=section, option=option, value=value)
 
     def sava_conf(self):

@@ -1,6 +1,7 @@
 import functools
 import time
 
+
 def catch_except(max_retries=5,validate=None):
 	def decorator(func):
 		functools.wraps(func)

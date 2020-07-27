@@ -1,7 +1,0 @@
-2020-07-24 18:44:41.813 | WARNING  | __main__:read_conf:33 - ini配置文件缺少test节点
-2020-07-24 18:44:41.815 | WARNING  | __main__:read_conf:33 - ini配置文件缺少test节点
-2020-07-24 18:44:41.816 | WARNING  | __main__:write_conf:47 - ini配置文件缺少test节点
-2020-07-24 18:44:41.816 | WARNING  | __main__:write_conf:49 - ini配置文件添加test节点成功
-2020-07-24 18:44:41.818 | SUCCESS  | __main__:sava_conf:57 - 正在打开文件，准备写入数据:C:\Users\小米笔记本\Desktop\全篇\configfile.ini
-2020-07-24 18:44:41.819 | SUCCESS  | __main__:sava_conf:59 - 数据写入文件成功:C:\Users\小米笔记本\Desktop\全篇\configfile.ini
-2020-07-24 18:44:41.820 | SUCCESS  | __main__:sava_conf:61 - 关闭文件:C:\Users\小米笔记本\Desktop\全篇\configfile.ini

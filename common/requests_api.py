@@ -6,8 +6,7 @@ from logs.logsfile import logger
 conf = WRConfigFile().read_conf
 url_head = conf('requests_setting', 'url_head')
 if url_head == '':
-    logger.info('configfile.ini文件没有配置[requests_setting][url_head]')
-    logger.error('configfile.ini文件没有配置[requests_setting][url_head]')
+    logger.warning('configfile.ini文件没有配置[requests_setting][url_head]')
 
 
 @logger.catch()
