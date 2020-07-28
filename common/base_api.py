@@ -71,6 +71,6 @@ class SQL(object):
 
 
 if __name__ == '__main__':
-    SQL().select_one(field_name='url', value_name='/api/user/stu_info')
-    SQL().select_all()[2]
+    SQL().select_one(table_name='testcase_cjxm', field_name='case_id', value_name='1')
+    SQL().select_all()
     SQL().select_all(table_name="testcase_cjxm")
