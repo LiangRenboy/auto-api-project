@@ -1,22 +1,20 @@
 import os
-import unittest
-from HtmlTestRunner import HTMLTestRunner
 import time
+import unittest
 from testcase import test_CJXM, test_NDXS
+from HtmlTestRunner import HTMLTestRunner
 from HtmlTestRunner_PY3 import HTMLTestRunner_PY3
 
 dir_path = os.getcwd()
 case_path = os.path.abspath('testcase')
 report_path = os.path.abspath('report')
-
 test_case = unittest.defaultTestLoader.discover(case_path, pattern='test*.py')
-
+now_time = time.strftime('%Y-%m-%d_%H.%M.%S')
+file_name = now_time + '_result.html'
+file_path = report_path + '\\' + file_name
 
 if __name__ == '__main__':
-
-    now_time = time.strftime('%Y-%m-%d_%H.%M.%S')
-    file_name = now_time + '_result.html'
-    file_path = report_path + '\\' + file_name
+    """生成两种类型的测试报告"""
     fp = open(file_path, 'a', encoding='utf-8')
     runner = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
     runner.run(test_case)
