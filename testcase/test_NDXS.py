@@ -14,22 +14,22 @@ class TestNDXS(unittest.TestCase):
         pass
 
     def test_ZCJK(self):
-        pass
+        unittest.TestCase().fail('test-fail')
 
     def test_DL(self):
-        pass
+        unittest.TestCase().fail()
 
     def test_TJJP(self):
-        pass
+        unittest.TestCase().fail()
 
     def test_CJJK(self):
-        pass
+        unittest.TestCase().fail()
 
     def test_CKZJJL(self):
-        pass
+        unittest.TestCase().fail()
 
     def test_HQSYJPXX(self):
-        pass
+        unittest.TestCase().fail()
 
 
 if __name__ == '__main__':

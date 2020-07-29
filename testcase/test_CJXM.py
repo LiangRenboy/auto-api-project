@@ -72,6 +72,7 @@ class TestCJXM(unittest.TestCase):
         assertion = eval(sql[5]['assert'])
         result = auto_request(url=url, method=method, body=body)
         self.assertEqual(eval(result)['error_code'], assertion['error_code'])
+        print('测试通过')
 
 
 if __name__ == '__main__':
