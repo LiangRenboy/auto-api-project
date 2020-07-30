@@ -1,7 +1,8 @@
-import unittest,time
+import unittest
 from common.requests_api import auto_request
 from common.base_api import SQL
 import os
+from retrying import retry
 
 
 sql = SQL().select_all(table_name='testcase_cjxm')
@@ -56,6 +57,7 @@ class TestCJXM(unittest.TestCase):
         result = auto_request(url=url, method=method, body=body)
         self.assertEqual(eval(result)['error_code'], assertion[0]['error_code'] or assertion[1]['error_code'])
 
+    @retry(stop_max_attempt_number=3)
     def test_CKZJJL(self):
         url = sql[4]['url']
         method = sql[4]['method']
@@ -72,7 +74,6 @@ class TestCJXM(unittest.TestCase):
         assertion = eval(sql[5]['assert'])
         result = auto_request(url=url, method=method, body=body)
         self.assertEqual(eval(result)['error_code'], assertion['error_code'])
-        print('测试通过')
 
 
 if __name__ == '__main__':

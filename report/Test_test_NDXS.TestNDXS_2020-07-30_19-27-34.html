@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">测试报告</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-07-29 20:15:51</p>
+                <p class='attribute'><strong>Start Time: </strong>2020-07-30 19:27:34</p>
                 <p class='attribute'><strong>Duration: </strong>0:00:04</p>
-                <p class='attribute'><strong>Status: </strong>Fail: 6</p>
+                <p class='attribute'><strong>Status: </strong>Pass: 2, Fail: 1, Error: 4</p>
             </div>
         </div>
         <div class="row">
@@ -27,8 +27,34 @@
                     </thead>
                     <tbody>
                         
+                            <tr class='success'>
+                                <td class="col-xs-9">a + b = 3 这个用例应该通过</td>
+                                <td class="col-xs-3">
+                                    <span class="label label-success">
+                                        
+                                            Pass
+                                        
+                                    </span>
+                                    
+                                </td>
+                            </tr>
+                            
+                        
+                            <tr class='success'>
+                                <td class="col-xs-9">a * b = 2 这个用例应该成功</td>
+                                <td class="col-xs-3">
+                                    <span class="label label-success">
+                                        
+                                            Pass
+                                        
+                                    </span>
+                                    
+                                </td>
+                            </tr>
+                            
+                        
                             <tr class='danger'>
-                                <td class="col-xs-9">test_CJJK (test_NDXS.TestNDXS)</td>
+                                <td class="col-xs-9">这是条失败的用例</td>
                                 <td class="col-xs-3">
                                     <span class="label label-danger">
                                         
@@ -49,12 +75,12 @@
                                 </tr>
                             
                         
-                            <tr class='danger'>
-                                <td class="col-xs-9">test_CKZJJL (test_NDXS.TestNDXS)</td>
+                            <tr class='warning'>
+                                <td class="col-xs-9">除零异常</td>
                                 <td class="col-xs-3">
-                                    <span class="label label-danger">
+                                    <span class="label label-warning">
                                         
-                                            Fail
+                                            Error
                                         
                                     </span>
                                     
@@ -65,18 +91,18 @@
                             
                                 <tr style="display:none;">
                                     <td class="col-xs-9">
-                                        <p>AssertionError</p>
-                                        <p>None</p>
+                                        <p>ZeroDivisionError</p>
+                                        <p>division by zero</p>
                                     </td> 
                                 </tr>
                             
                         
-                            <tr class='danger'>
-                                <td class="col-xs-9">test_DL (test_NDXS.TestNDXS)</td>
+                            <tr class='warning'>
+                                <td class="col-xs-9">用例3，plus，此用例执行出错，因为c未定义</td>
                                 <td class="col-xs-3">
-                                    <span class="label label-danger">
+                                    <span class="label label-warning">
                                         
-                                            Fail
+                                            Error
                                         
                                     </span>
                                     
@@ -87,18 +113,18 @@
                             
                                 <tr style="display:none;">
                                     <td class="col-xs-9">
-                                        <p>AssertionError</p>
-                                        <p>None</p>
+                                        <p>NameError</p>
+                                        <p>name 'c' is not defined</p>
                                     </td> 
                                 </tr>
                             
                         
-                            <tr class='danger'>
-                                <td class="col-xs-9">test_HQSYJPXX (test_NDXS.TestNDXS)</td>
+                            <tr class='warning'>
+                                <td class="col-xs-9">a / c = 1 这是个有subTest的用例</td>
                                 <td class="col-xs-3">
-                                    <span class="label label-danger">
+                                    <span class="label label-warning">
                                         
-                                            Fail
+                                            Error
                                         
                                     </span>
                                     
@@ -110,17 +136,17 @@
                                 <tr style="display:none;">
                                     <td class="col-xs-9">
                                         <p>AssertionError</p>
-                                        <p>None</p>
+                                        <p>0.5 != 1</p>
                                     </td> 
                                 </tr>
                             
                         
-                            <tr class='danger'>
-                                <td class="col-xs-9">test_TJJP (test_NDXS.TestNDXS)</td>
+                            <tr class='warning'>
+                                <td class="col-xs-9">a / c = 1 这是个有subTest的用例</td>
                                 <td class="col-xs-3">
-                                    <span class="label label-danger">
+                                    <span class="label label-warning">
                                         
-                                            Fail
+                                            Error
                                         
                                     </span>
                                     
@@ -132,29 +158,7 @@
                                 <tr style="display:none;">
                                     <td class="col-xs-9">
                                         <p>AssertionError</p>
-                                        <p>None</p>
-                                    </td> 
-                                </tr>
-                            
-                        
-                            <tr class='danger'>
-                                <td class="col-xs-9">test_ZCJK (test_NDXS.TestNDXS)</td>
-                                <td class="col-xs-3">
-                                    <span class="label label-danger">
-                                        
-                                            Fail
-                                        
-                                    </span>
-                                    
-                                        &nbsp<button class="btn btn-default btn-xs">View</button>
-                                    
-                                </td>
-                            </tr>
-                            
-                                <tr style="display:none;">
-                                    <td class="col-xs-9">
-                                        <p>AssertionError</p>
-                                        <p>test-fail</p>
+                                        <p>0.3333333333333333 != 1</p>
                                     </td> 
                                 </tr>
                             
@@ -164,7 +168,7 @@
                                Total Test Runned: 
                             </td>
                             <td>
-                                <span>Fail: 6</span>
+                                <span>Pass: 2, Fail: 1, Error: 4</span>
                             </td>
                         </tr>
                     </tbody>

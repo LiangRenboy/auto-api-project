@@ -200,9 +200,9 @@
         
     <div class='page-header'>
         <h1>测试报告</h1>
-    <p class='attribute'><strong>开始时间:</strong> 2020-07-29 20:15:56</p>
-<p class='attribute'><strong>运行时长:</strong> 0:00:04.102211</p>
-<p class='attribute'><strong>状态:</strong> 通过 6 失败 6</p>
+    <p class='attribute'><strong>开始时间:</strong> 2020-07-30 19:27:39</p>
+<p class='attribute'><strong>运行时长:</strong> 0:00:03.910830</p>
+<p class='attribute'><strong>状态:</strong> 通过 9 失败 3 错误 2</p>
 
     </div>
     <div style="float: left;width:50%;"><p class='description'>用例执行情况</p></div>
@@ -259,19 +259,7 @@
 
 <tr id='pt1.4' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_HQSYJPXX</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
-        通过</a>
-
-    <div id='div_pt1.4' class="popup_window">
-        <pre>pt1.4: 测试通过
-</pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
+    <td colspan='5' align='center'>通过</td>
 </tr>
 
 <tr id='pt1.5' class='hiddenRow'>
@@ -284,28 +272,29 @@
     <td colspan='5' align='center'>通过</td>
 </tr>
 
-    <tr class='failClass'>
+    <tr class='errorClass'>
         <td>testcase.test_NDXS.TestNDXS</td>
-        <td>6</td>
-        <td>0</td>
-        <td>6</td>
-        <td>0</td>
-        <td><a href="javascript:showClassDetail('c2',6)">详情</a></td>
+        <td>8</td>
+        <td>3</td>
+        <td>3</td>
+        <td>2</td>
+        <td><a href="javascript:showClassDetail('c2',8)">详情</a></td>
     </tr>
 
 <tr id='ft2.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_CJJK</div></td>
+    <td class='errorCase'><div class='testcase'>test_CJJK: 除零异常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
-        失败</a>
+        错误</a>
 
     <div id='div_ft2.1' class="popup_window">
-        <pre>ft2.1: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 26, in test_CJJK
-    unittest.TestCase().fail()
-AssertionError: None
+        <pre>ft2.1: 1/0
+Traceback (most recent call last):
+  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 38, in test_CJJK
+    self.assertEqual(self.a / 0, 1)
+ZeroDivisionError: division by zero
 </pre>
     </div>
     <!--css div popup end-->
@@ -314,18 +303,18 @@ AssertionError: None
 </tr>
 
 <tr id='ft2.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_CKZJJL</div></td>
+    <td class='errorCase'><div class='testcase'>test_CKZJJL: 用例3，plus，此用例执行出错，因为c未定义</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
-        失败</a>
+        错误</a>
 
     <div id='div_ft2.2' class="popup_window">
         <pre>ft2.2: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 29, in test_CKZJJL
-    unittest.TestCase().fail()
-AssertionError: None
+  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 42, in test_CKZJJL
+    self.assertEqual(self.a * self.b, c)
+NameError: name 'c' is not defined
 </pre>
     </div>
     <!--css div popup end-->
@@ -333,28 +322,13 @@ AssertionError: None
     </td>
 </tr>
 
-<tr id='ft2.3' class='none'>
-    <td class='failCase'><div class='testcase'>test_DL</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
-        失败</a>
-
-    <div id='div_ft2.3' class="popup_window">
-        <pre>ft2.3: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 20, in test_DL
-    unittest.TestCase().fail()
-AssertionError: None
-</pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_DL: a + b = 3 这个用例应该通过</div></td>
+    <td colspan='5' align='center'>通过</td>
 </tr>
 
 <tr id='ft2.4' class='none'>
-    <td class='failCase'><div class='testcase'>test_HQSYJPXX</div></td>
+    <td class='failCase'><div class='testcase'>test_HQSYJPXX: 这是条失败的用例</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -363,7 +337,7 @@ AssertionError: None
 
     <div id='div_ft2.4' class="popup_window">
         <pre>ft2.4: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 32, in test_HQSYJPXX
+  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 46, in test_HQSYJPXX
     unittest.TestCase().fail()
 AssertionError: None
 </pre>
@@ -373,20 +347,21 @@ AssertionError: None
     </td>
 </tr>
 
-<tr id='ft2.5' class='none'>
-    <td class='failCase'><div class='testcase'>test_TJJP</div></td>
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_TJJP: a / c = 1 这是个有subTest的用例</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.5')" >
-        失败</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        通过</a>
 
-    <div id='div_ft2.5' class="popup_window">
-        <pre>ft2.5: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 23, in test_TJJP
-    unittest.TestCase().fail()
-AssertionError: None
-</pre>
+    <div id='div_pt2.5' class="popup_window">
+        <pre>pt2.5: a / c = 1
+a / c = 1
+a / c = 1
+
+SubTestCase Pass:
+test_TJJP (testcase.test_NDXS.TestNDXS) (i=1)</pre>
     </div>
     <!--css div popup end-->
 
@@ -394,7 +369,7 @@ AssertionError: None
 </tr>
 
 <tr id='ft2.6' class='none'>
-    <td class='failCase'><div class='testcase'>test_ZCJK</div></td>
+    <td class='failCase'><div class='testcase'>test_TJJP: a / c = 1 这是个有subTest的用例</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -402,10 +377,57 @@ AssertionError: None
         失败</a>
 
     <div id='div_ft2.6' class="popup_window">
-        <pre>ft2.6: Traceback (most recent call last):
-  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 17, in test_ZCJK
-    unittest.TestCase().fail('test-fail')
-AssertionError: test-fail
+        <pre>ft2.6: a / c = 1
+a / c = 1
+a / c = 1
+
+SubTestCase Failed:
+test_TJJP (testcase.test_NDXS.TestNDXS) (i=2)Traceback (most recent call last):
+  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 33, in test_TJJP
+    self.assertEqual(self.a / i, 1)
+AssertionError: 0.5 != 1
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.7' class='none'>
+    <td class='failCase'><div class='testcase'>test_TJJP: a / c = 1 这是个有subTest的用例</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.7')" >
+        失败</a>
+
+    <div id='div_ft2.7' class="popup_window">
+        <pre>ft2.7: a / c = 1
+a / c = 1
+a / c = 1
+
+SubTestCase Failed:
+test_TJJP (testcase.test_NDXS.TestNDXS) (i=3)Traceback (most recent call last):
+  File "C:\Users\小米笔记本\Desktop\全篇\testcase\test_NDXS.py", line 33, in test_TJJP
+    self.assertEqual(self.a / i, 1)
+AssertionError: 0.3333333333333333 != 1
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ZCJK: a * b = 2 这个用例应该成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
+        通过</a>
+
+    <div id='div_pt2.8' class="popup_window">
+        <pre>pt2.8: a * b = 2
 </pre>
     </div>
     <!--css div popup end-->
@@ -415,10 +437,10 @@ AssertionError: test-fail
 
         <tr id='total_row'>
             <td>总计</td>
-            <td>12</td>
-            <td>6</td>
-            <td>6</td>
-            <td>0</td>
+            <td>14</td>
+            <td>9</td>
+            <td>3</td>
+            <td>2</td>
             <td>&nbsp;</td>
         </tr>
     </table>
@@ -452,9 +474,9 @@ AssertionError: test-fail
                     radius : '60%',
                     center: ['50%', '60%'],
                     data:[
-                        {value:6, name:'通过'},
-                        {value:6, name:'失败'},
-                        {value:0, name:'错误'}
+                        {value:9, name:'通过'},
+                        {value:3, name:'失败'},
+                        {value:2, name:'错误'}
                     ],
                     itemStyle: {
                         emphasis: {
