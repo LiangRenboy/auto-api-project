@@ -10,7 +10,7 @@ if url_head == '':
 
 
 @logger.catch()
-def auto_request(url, method, body=None, headers=None, files=None, allow_redirects=True, timeout=3):
+def auto_request(url, method, body=None, headers=None, files=None, allow_redirects=True, timeout=5):
     all_url = str(url_head) + str(url)
     global get_response
     global post_response
@@ -55,7 +55,8 @@ if __name__ == '__main__':
 
 
 
-#
+
+
 # @logger.catch()
 # def auto_get(url=None, params=None, headers=None, allow_redirects=True, timeout=3):
 #     all_url = str(url_head) + str(url)
@@ -70,7 +71,6 @@ if __name__ == '__main__':
 #         return get_response.text
 #     finally:
 #         logger.info('接口执行完毕')
-#
 #
 # @logger.catch()
 # def auto_post(url=None, data=None, headers=None, allow_redirects=True, timeout=3):
@@ -94,5 +94,3 @@ if __name__ == '__main__':
 #     auto_get(url='/index.php?s=/5&page_id=17')
 #     data = {'username': 'niuhanyang', 'passwd': 'aA123456'}
 #     auto_post(url='/api/user/login', data=data)
-
-

@@ -1,39 +1,116 @@
-2020-07-31 15:03:57.413 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:03:57.467 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:03:57.472 | SUCCESS  | __main__:select_all:61 - 执行查询SQL语句:select * from testcase_cjxm
-2020-07-31 15:03:57.473 | SUCCESS  | __main__:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_CJXM_001', 'title': '注册接口', 'url': '/api/user/user_reg', 'method': 'POST', 'body': "{'username':'abctest','pwd':'Aa123456','cpwd':'Aa123456'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':3005}", 'status': '200', 'token': None}, {'case_id': 2, 'case_num': 'test_CJXM_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{ 'username': 'mytest','passwd': 'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 3, 'case_num': 'test_CJXM_003', 'title': '添加奖品(需上传文件)', 'url': '/api/product/add', 'method': 'POST', 'body': "{'name': '奖品名字2020', 'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'msg':'必须是管理员才可以添加奖品'}", 'status': '200', 'token': None}, {'case_id': 4, 'case_num': 'test_CJXM_004', 'title': '抽奖接口', 'url': '/api/product/choice', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':1099}", 'status': '200', 'token': None}, {'case_id': 5, 'case_num': 'test_CJXM_005', 'title': '查看中奖记录', 'url': '/api/user/win_record', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 6, 'case_num': 'test_CJXM_006', 'title': '获取所有奖品信息', 'url': '/api/product/all', 'method': 'GET', 'body': None, 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}]
-2020-07-31 15:03:57.475 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:04:05.229 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:04:05.246 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:04:05.252 | SUCCESS  | __main__:select_all:61 - 执行查询SQL语句:select * from testcase
-2020-07-31 15:04:05.253 | SUCCESS  | __main__:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_HQXSXX_001', 'title': '获取学生信息', 'url': '/api/user/stu_info', 'method': 'get', 'body': '{"stu_name": "黑黑"}', 'headers': None, 'assert': 'error_cod=0', 'status': '200', 'token': ''}, {'case_id': 2, 'case_num': 'test_DLXSZH_002', 'title': '登录学生账号001', 'url': '/api/user/login', 'method': 'post', 'body': '{"passwd": "aA123456", "username": "niuhanyang"}', 'headers': None, 'assert': 'error_cod=0', 'status': '200', 'token': None}, {'case_id': 3, 'case_num': 'test_DLXSZH_003', 'title': '登录学生账号002', 'url': '/api/user/login', 'method': 'post', 'body': '{"passwd": "123456", "username": "admin"}', 'headers': None, 'assert': 'error_cod=500', 'status': '200', 'token': None}]
-2020-07-31 15:04:05.254 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:04:16.168 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:04:16.183 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:04:16.201 | WARNING  | __main__:select_all:63 - SQL语句执行异常，请检查SQL语句:select * from None,异常:(1146, "Table 'testbase.none' doesn't exist")
-2020-07-31 15:04:16.203 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:05:11.764 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:05:11.780 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:05:11.788 | SUCCESS  | __main__:select_one:44 - 执行查询SQL语句:select * from testcase where case_id = "1"
-2020-07-31 15:05:11.788 | SUCCESS  | __main__:select_one:49 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_HQXSXX_001', 'title': '获取学生信息', 'url': '/api/user/stu_info', 'method': 'get', 'body': '{"stu_name": "黑黑"}', 'headers': None, 'assert': 'error_cod=0', 'status': '200', 'token': ''}]
-2020-07-31 15:05:11.789 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:05:29.159 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:05:29.175 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:05:29.187 | WARNING  | __main__:select_one:46 - SQL语句执行异常，请检查SQL语句:select * from None where None = "None",异常:(1146, "Table 'testbase.none' doesn't exist")
-2020-07-31 15:05:29.188 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:05:53.670 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:05:53.686 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:06:23.597 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:06:23.611 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:06:23.614 | SUCCESS  | __main__:select_one:44 - 执行查询SQL语句:select * from testcase_cjxm where case_id = "1"
-2020-07-31 15:06:23.615 | SUCCESS  | __main__:select_one:49 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_CJXM_001', 'title': '注册接口', 'url': '/api/user/user_reg', 'method': 'POST', 'body': "{'username':'abctest','pwd':'Aa123456','cpwd':'Aa123456'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':3005}", 'status': '200', 'token': None}]
-2020-07-31 15:06:23.615 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:06:23.617 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:06:23.620 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:06:23.630 | WARNING  | __main__:select_one:46 - SQL语句执行异常，请检查SQL语句:select * from None where None = "None",异常:(1146, "Table 'testbase.none' doesn't exist")
-2020-07-31 15:06:23.631 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
-2020-07-31 15:06:23.634 | INFO     | __main__:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
-2020-07-31 15:06:23.636 | SUCCESS  | __main__:__init__:27 - 连接数据库成功
-2020-07-31 15:06:23.638 | SUCCESS  | __main__:select_all:61 - 执行查询SQL语句:select * from testcase_cjxm
-2020-07-31 15:06:23.638 | SUCCESS  | __main__:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_CJXM_001', 'title': '注册接口', 'url': '/api/user/user_reg', 'method': 'POST', 'body': "{'username':'abctest','pwd':'Aa123456','cpwd':'Aa123456'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':3005}", 'status': '200', 'token': None}, {'case_id': 2, 'case_num': 'test_CJXM_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{ 'username': 'mytest','passwd': 'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 3, 'case_num': 'test_CJXM_003', 'title': '添加奖品(需上传文件)', 'url': '/api/product/add', 'method': 'POST', 'body': "{'name': '奖品名字2020', 'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'msg':'必须是管理员才可以添加奖品'}", 'status': '200', 'token': None}, {'case_id': 4, 'case_num': 'test_CJXM_004', 'title': '抽奖接口', 'url': '/api/product/choice', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':1099}", 'status': '200', 'token': None}, {'case_id': 5, 'case_num': 'test_CJXM_005', 'title': '查看中奖记录', 'url': '/api/user/win_record', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 6, 'case_num': 'test_CJXM_006', 'title': '获取所有奖品信息', 'url': '/api/product/all', 'method': 'GET', 'body': None, 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}]
-2020-07-31 15:06:23.639 | SUCCESS  | __main__:close_base:36 - 关闭数据库成功
+2020-07-31 20:02:43.833 | INFO     | common.base_api:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
+2020-07-31 20:02:43.850 | SUCCESS  | common.base_api:__init__:27 - 连接数据库成功
+2020-07-31 20:02:43.853 | SUCCESS  | common.base_api:select_all:61 - 执行查询SQL语句:select * from testcase_cjxm
+2020-07-31 20:02:43.854 | SUCCESS  | common.base_api:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_CJXM_001', 'title': '注册接口', 'url': '/api/user/user_reg', 'method': 'POST', 'body': "{'username':'abctest','pwd':'Aa123456','cpwd':'Aa123456'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':3005}", 'status': '200', 'token': None}, {'case_id': 2, 'case_num': 'test_CJXM_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{ 'username': 'mytest','passwd': 'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 3, 'case_num': 'test_CJXM_003', 'title': '添加奖品(需上传文件)', 'url': '/api/product/add', 'method': 'POST', 'body': "{'name': '奖品名字2020', 'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'msg':'必须是管理员才可以添加奖品'}", 'status': '200', 'token': None}, {'case_id': 4, 'case_num': 'test_CJXM_004', 'title': '抽奖接口', 'url': '/api/product/choice', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':1099}", 'status': '200', 'token': None}, {'case_id': 5, 'case_num': 'test_CJXM_005', 'title': '查看中奖记录', 'url': '/api/user/win_record', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 6, 'case_num': 'test_CJXM_006', 'title': '获取所有奖品信息', 'url': '/api/product/all', 'method': 'GET', 'body': None, 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}]
+2020-07-31 20:02:43.855 | SUCCESS  | common.base_api:close_base:36 - 关闭数据库成功
+2020-07-31 20:02:43.859 | INFO     | common.base_api:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
+2020-07-31 20:02:43.865 | SUCCESS  | common.base_api:__init__:27 - 连接数据库成功
+2020-07-31 20:02:43.868 | SUCCESS  | common.base_api:select_all:61 - 执行查询SQL语句:select * from testcase_ndxs
+2020-07-31 20:02:43.868 | SUCCESS  | common.base_api:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_NDXS_001', 'title': '获取学生信息', 'url': '/api/user/stu_info', 'method': 'GET', 'body': "{'stu_name':'小草'}", 'headers': None, 'assert': "{'error_code':0}", 'status': None, 'token': None}, {'case_id': 2, 'case_num': 'test_NDXS_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{'username':'mytest','passwd':'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': None, 'token': None}, {'case_id': 3, 'case_num': 'test_NDXS_003', 'title': '添加学生信息', 'url': '/api/user/add_stu', 'method': 'POST', 'body': "{'name': 'mytest', 'grade': '计算机2020班', 'phone': '13512341234'}", 'headers': None, 'assert': "{'msg':'手机号已经存在'}", 'status': None, 'token': ''}, {'case_id': 4, 'case_num': 'test_NDXS_004', 'title': '学生金币充值', 'url': '/api/user/gold_add', 'method': 'POST', 'body': "{'stu_id':'100002630','gold': 1}", 'headers': None, 'assert': "{'msg':'请登陆'}", 'status': None, 'token': 'b44109efbfe1007c1ad93a757d78e459'}, {'case_id': 5, 'case_num': 'test_NDXS_005', 'title': '获取所有学生信息', 'url': '/api/user/all_stu', 'method': 'GET', 'body': None, 'headers': "{'Referer':'http://api.nnzhp.cn/'}", 'assert': None, 'status': None, 'token': None}, {'case_id': 6, 'case_num': 'test_NDXS_006', 'title': '文件上传', 'url': '/api/file/file_upload', 'method': 'POST', 'body': None, 'headers': None, 'assert': "{'msg':'操作成功'}", 'status': None, 'token': None}]
+2020-07-31 20:02:43.869 | SUCCESS  | common.base_api:close_base:36 - 关闭数据库成功
+2020-07-31 20:02:44.140 | INFO     | common.base_api:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
+2020-07-31 20:02:44.143 | SUCCESS  | common.base_api:__init__:27 - 连接数据库成功
+2020-07-31 20:02:44.144 | SUCCESS  | common.base_api:select_all:61 - 执行查询SQL语句:select * from testcase_cjxm
+2020-07-31 20:02:44.145 | SUCCESS  | common.base_api:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_CJXM_001', 'title': '注册接口', 'url': '/api/user/user_reg', 'method': 'POST', 'body': "{'username':'abctest','pwd':'Aa123456','cpwd':'Aa123456'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':3005}", 'status': '200', 'token': None}, {'case_id': 2, 'case_num': 'test_CJXM_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{ 'username': 'mytest','passwd': 'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 3, 'case_num': 'test_CJXM_003', 'title': '添加奖品(需上传文件)', 'url': '/api/product/add', 'method': 'POST', 'body': "{'name': '奖品名字2020', 'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'msg':'必须是管理员才可以添加奖品'}", 'status': '200', 'token': None}, {'case_id': 4, 'case_num': 'test_CJXM_004', 'title': '抽奖接口', 'url': '/api/product/choice', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0},{'error_code':1099}", 'status': '200', 'token': None}, {'case_id': 5, 'case_num': 'test_CJXM_005', 'title': '查看中奖记录', 'url': '/api/user/win_record', 'method': 'GET', 'body': "{'sign': 'b44109efbfe1007c1ad93a757d78e459', 'userid': '78926'}", 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}, {'case_id': 6, 'case_num': 'test_CJXM_006', 'title': '获取所有奖品信息', 'url': '/api/product/all', 'method': 'GET', 'body': None, 'headers': None, 'assert': "{'error_code':0}", 'status': '200', 'token': None}]
+2020-07-31 20:02:44.146 | SUCCESS  | common.base_api:close_base:36 - 关闭数据库成功
+2020-07-31 20:02:44.149 | INFO     | common.base_api:__init__:16 - 正在连接数据库,数据库地址=localhost,用户名=root,数据库密码=root,数据库名称=testbase
+2020-07-31 20:02:44.152 | SUCCESS  | common.base_api:__init__:27 - 连接数据库成功
+2020-07-31 20:02:44.153 | SUCCESS  | common.base_api:select_all:61 - 执行查询SQL语句:select * from testcase_ndxs
+2020-07-31 20:02:44.154 | SUCCESS  | common.base_api:select_all:66 - 数据库返回查询数据:[{'case_id': 1, 'case_num': 'test_NDXS_001', 'title': '获取学生信息', 'url': '/api/user/stu_info', 'method': 'GET', 'body': "{'stu_name':'小草'}", 'headers': None, 'assert': "{'error_code':0}", 'status': None, 'token': None}, {'case_id': 2, 'case_num': 'test_NDXS_002', 'title': '登录', 'url': '/api/user/login', 'method': 'POST', 'body': "{'username':'mytest','passwd':'Abc123'}", 'headers': None, 'assert': "{'error_code':0}", 'status': None, 'token': None}, {'case_id': 3, 'case_num': 'test_NDXS_003', 'title': '添加学生信息', 'url': '/api/user/add_stu', 'method': 'POST', 'body': "{'name': 'mytest', 'grade': '计算机2020班', 'phone': '13512341234'}", 'headers': None, 'assert': "{'msg':'手机号已经存在'}", 'status': None, 'token': ''}, {'case_id': 4, 'case_num': 'test_NDXS_004', 'title': '学生金币充值', 'url': '/api/user/gold_add', 'method': 'POST', 'body': "{'stu_id':'100002630','gold': 1}", 'headers': None, 'assert': "{'msg':'请登陆'}", 'status': None, 'token': 'b44109efbfe1007c1ad93a757d78e459'}, {'case_id': 5, 'case_num': 'test_NDXS_005', 'title': '获取所有学生信息', 'url': '/api/user/all_stu', 'method': 'GET', 'body': None, 'headers': "{'Referer':'http://api.nnzhp.cn/'}", 'assert': None, 'status': None, 'token': None}, {'case_id': 6, 'case_num': 'test_NDXS_006', 'title': '文件上传', 'url': '/api/file/file_upload', 'method': 'POST', 'body': None, 'headers': None, 'assert': "{'msg':'操作成功'}", 'status': None, 'token': None}]
+2020-07-31 20:02:44.154 | SUCCESS  | common.base_api:close_base:36 - 关闭数据库成功
+2020-07-31 20:02:44.158 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.345 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.345 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:44.346 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:44.347 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/choice
+2020-07-31 20:02:44.436 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/choice?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:44.437 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:44.441 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:44.442 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.543 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.544 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:44.544 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:44.545 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/win_record
+2020-07-31 20:02:44.722 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/win_record?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:44.723 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:44.724 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:44.725 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.890 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:44.891 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:44.891 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:44.892 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:47.086 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:47.086 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:48.411 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:48.437 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:48.686 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:48.686 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:48.687 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:48.688 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:48.776 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:48.776 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:48.777 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:48.802 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:48.887 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:48.888 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:48.889 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:48.889 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/choice
+2020-07-31 20:02:48.980 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/choice?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:48.980 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:48.982 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:48.982 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:49.077 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:49.077 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:49.078 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:49.078 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/win_record
+2020-07-31 20:02:49.180 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/win_record?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:49.181 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:49.181 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:49.182 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:49.276 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:49.276 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:49.277 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:49.277 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:51.199 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:51.199 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:52.503 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:52.529 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:52.769 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:52.769 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:52.769 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:52.770 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:52.857 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:52.857 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:52.857 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:52.862 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:52.955 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:52.955 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:52.956 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:52.956 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/choice
+2020-07-31 20:02:53.041 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/choice?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:53.041 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:53.044 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:53.045 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:53.137 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:53.138 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:53.138 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:53.138 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/win_record
+2020-07-31 20:02:53.223 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/win_record?sign=cfc18e94aa3367633af2b0f534428557&userid=78926
+2020-07-31 20:02:53.224 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:53.224 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:53.225 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:53.304 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/login
+2020-07-31 20:02:53.305 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:53.306 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:53.307 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:55.472 | SUCCESS  | common.requests_api:auto_request:21 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/all
+2020-07-31 20:02:55.472 | SUCCESS  | common.requests_api:auto_request:32 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:56.933 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:56.960 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:57.172 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/product/add
+2020-07-31 20:02:57.172 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:57.172 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕
+2020-07-31 20:02:57.173 | INFO     | common.requests_api:auto_request:18 - 开始请求接口:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:57.280 | SUCCESS  | common.requests_api:auto_request:24 - 接口请求成功，等待返回数据。请求URL:http://api.nnzhp.cn/api/user/user_reg
+2020-07-31 20:02:57.280 | SUCCESS  | common.requests_api:auto_request:36 - 接口请求执行成功，返回数据成功
+2020-07-31 20:02:57.280 | INFO     | common.requests_api:auto_request:40 - 接口执行完毕

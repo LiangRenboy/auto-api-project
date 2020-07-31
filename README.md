@@ -12,9 +12,9 @@
 
 ### 3、使用unittest框架编写接口测试用例
 
-- 调用封装的数据库方法取数据库数据
-- 数据传入requests封装方法中
-- 断言：响应数据是否和存在数据库中的断言字段一致，判断用例是否通过依据
+    - 调用封装的数据库方法取数据库数据
+    - 数据传入requests封装方法中
+    - 断言：响应数据是否和存在数据库中的断言字段一致，判断用例是否通过依据
 
 ### 4、执行用例
 
@@ -25,9 +25,10 @@
 -------------------
 
 > **注意：**虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，**请务必经常及时同步到印象笔记**。
-#文件目录
+
+# 文件目录
 - **commnon文件夹**：公共使用的类
-	- **base_api.py**：连接数据库，读取数据库表数据
+    - **base_api.py**：连接数据库，读取数据库表数据
 	- **readConfig.py**：读写configfile.ini文件配置信息
 	> **注意**：**读写操作时需分开进行**，不能用同一个实例，否则会重复写入之前配置文件中存在的内容。
 	- **requests_api.py**：增加auto_request，更适用项目
@@ -41,11 +42,51 @@
 - **run.py**：程序运行主文件，运行main函数
 
 
-## base_api.py
+## requests_api.py
+
+`@logger.catch()`：捕获运行中的异常写入error日志文件  
+**url**：根据配置文件主机地址加上资源路径，所以`auto_request()`函数**url只需传入资源路径**  
+`auto_request()`：需要传入url、method、body，函数会根据method方法判断接口请求方式  
+
 
 ``` python 
 @logger.catch()
-    def select_one(self, table_name=None, field_name=None, value_name=None):
+def auto_request(url, method, body=None, headers=None, files=None, allow_redirects=True, timeout=5):
+    all_url = str(url_head) + str(url)
+    global get_response
+    global post_response
+    try:
+        logger.info('开始请求接口:{all_url}', all_url=all_url)
+        if method == 'GET':
+            get_response = requests.get(url=all_url, headers=headers, params=body, files=files, allow_redirects=allow_redirects, timeout=timeout)
+            logger.success('接口请求成功，等待返回数据。请求URL:{get_response_url}', get_response_url=get_response.url)
+        elif method == 'POST':
+            post_response = requests.post(url=all_url, headers=headers, data=body, files=files, allow_redirects=allow_redirects, timeout=timeout)
+            logger.success('接口请求成功，等待返回数据。请求URL:{post_response_url}', post_response_url=post_response.url)
+        else:
+            logger.warning('接口method方法错误,请检查后重试')
+            raise Exception('接口请求方法错误,暂无' + str(method) + '方法')
+    except BaseException as e:
+        logger.error('接口请求时发生异常:{all_url},异常:{e}', all_url=all_url, e=e)
+    else:
+        if method == 'GET':
+            logger.success('接口请求执行成功，返回数据成功')
+            # logger.success('接口请求执行成功，返回数据:{get_response}', get_response=get_response.content)
+            return get_response.text
+        elif method == 'POST':
+            logger.success('接口请求执行成功，返回数据成功')
+            # logger.success('接口请求执行成功，返回数据:{post_response}', post_response=post_response.json())
+            return post_response.json()
+    finally:
+        logger.info('接口执行完毕')
+```
+
+## base_api.py代码片段
+
+`select_one()`：需要传入表名、字段、值，函数会返回在数据库查询到的数据  
+
+``` python 
+def select_one(self, table_name=None, field_name=None, value_name=None):
         cursors = self.creat_connect()
         sql = 'select * from %s where %s = "%s"' % (table_name, field_name, value_name)
         try:
@@ -59,5 +100,22 @@
             return result
         finally:
             cursors.close()
-            self.close_base() 
+            self.close_base()
+```
+
+## logsfile.py代码片段
+
+`info_logs_path`：传入日志路径  
+`filter`：设置日志等级  
+`enqueue`：支持异步写入
+
+```python
+logger.add(info_logs_path,
+           filter=lambda x: x['level'].name > 'ERROR',
+           # level='INFO',
+           enqueue=True,
+           rotation='00:00',
+           encoding='utf-8',
+           retention='30 days'
+           )
 ```

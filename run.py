@@ -10,8 +10,8 @@ from HtmlTestRunner_PY import HTMLTestRunner_PY3
 dir_path = os.getcwd()
 case_path = os.path.abspath('testcase')
 report_path = os.path.abspath('report')
-test_case = unittest.defaultTestLoader.discover(case_path, pattern='test*.py')
-my_test_case = unittest.defaultTestLoader.discover(case_path, pattern='test*.py')
+one_test_case = unittest.defaultTestLoader.discover(case_path, pattern='test*.py')
+three_test_case = unittest.defaultTestLoader.discover(case_path, pattern='test*.py')
 now_time = time.strftime('%Y-%m-%d_%H.%M.%S')
 file_name = now_time + '_result.html'
 
@@ -24,8 +24,8 @@ if __name__ == '__main__':
     """第一种测试报告"""
     one_file_path = report_path + '\\' + file_name
     fp = open(one_file_path, 'a', encoding='utf-8')
-    runner = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
-    runner.run(test_case)
+    one_run = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
+    one_run.run(one_test_case)
     fp.close()
 
     """第二种测试报告"""
@@ -34,14 +34,14 @@ if __name__ == '__main__':
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(test_CJXM.TestCJXM))
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(test_NDXS.TestNDXS))
     with open(two_file_path, 'wb') as report:
-        all_runner = HTMLTestRunner_PY3.HTMLTestRunner(stream=report, title='测试报告', description='用例执行情况')
-        all_runner.run(suite)
+        two_runner = HTMLTestRunner_PY3.HTMLTestRunner(stream=report, title='测试报告', description='用例执行情况')
+        two_runner.run(suite)
 
     """第三种测试报告"""
     three_file_path = report_path + '\\' + now_time + '_all_result.html'
     with open(three_file_path, 'wb') as pyreport:
-        runn = HTMLTestRunner_PY2.HTMLTestRunner(stream=pyreport, title='My unit test', description='HTMLTestRunner')
-        runn.run(my_test_case)
+        three_runner = HTMLTestRunner_PY2.HTMLTestRunner(stream=pyreport, title='My unit test', description='HTMLTestRunner')
+        three_runner.run(three_test_case)
 
 
 
