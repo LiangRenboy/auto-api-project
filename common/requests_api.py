@@ -26,7 +26,7 @@ def auto_request(url, method, body=None, headers=None, files=None, allow_redirec
             logger.warning('接口method方法错误,请检查后重试')
             raise Exception('接口请求方法错误,暂无' + str(method) + '方法')
     except BaseException as e:
-        logger.warning('接口请求时发生异常:{all_url},异常:{e}', all_url=all_url, e=e)
+        logger.error('接口请求时发生异常:{all_url},异常:{e}', all_url=all_url, e=e)
     else:
         if method == 'GET':
             logger.success('接口请求执行成功，返回数据成功')

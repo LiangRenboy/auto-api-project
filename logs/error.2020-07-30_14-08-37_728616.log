@@ -1,0 +1,15 @@
+2020-07-30 14:08:37.718 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 15:13:08.208 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 15:49:34.095 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 15:49:41.399 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 15:49:51.237 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 15:50:55.388 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 17:04:47.094 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:04:51.587 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
+2020-07-30 17:04:55.433 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:18:10.241 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:20:10.033 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:20:14.273 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/win_record,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:20:17.504 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/win_record,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:20:20.565 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-30 17:20:52.854 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/add,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)

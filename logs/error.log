@@ -1,15 +1,11 @@
-2020-07-30 14:08:37.718 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 15:13:08.208 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 15:49:34.095 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 15:49:41.399 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 15:49:51.237 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 15:50:55.388 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 17:04:47.094 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:04:51.587 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/all,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out.
-2020-07-30 17:04:55.433 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:18:10.241 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/choice,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:20:10.033 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:20:14.273 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/win_record,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:20:17.504 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/win_record,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:20:20.565 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/user/login,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
-2020-07-30 17:20:52.854 | WARNING  | common.requests_api:auto_request:29 - 接口请求时发生异常:http://api.nnzhp.cn/api/product/add,异常:HTTPConnectionPool(host='api.nnzhp.cn', port=80): Read timed out. (read timeout=3)
+2020-07-31 15:04:16.201 | WARNING  | __main__:select_all:63 - SQL语句执行异常，请检查SQL语句:select * from None,异常:(1146, "Table 'testbase.none' doesn't exist")
+2020-07-31 15:05:29.187 | WARNING  | __main__:select_one:46 - SQL语句执行异常，请检查SQL语句:select * from None where None = "None",异常:(1146, "Table 'testbase.none' doesn't exist")
+2020-07-31 15:05:53.686 | ERROR    | __main__:<module>:75 - An error has been caught in function '<module>', process 'MainProcess' (13944), thread 'MainThread' (460):
+Traceback (most recent call last):
+
+> File "C:/Users/小米笔记本/Desktop/全篇/common/base_api.py", line 75, in <module>
+    SQL().select_one()
+    └ <class '__main__.SQL'>
+
+TypeError: select_one() missing 3 required positional arguments: 'table_name', 'field_name', and 'value_name'
+2020-07-31 15:06:23.630 | WARNING  | __main__:select_one:46 - SQL语句执行异常，请检查SQL语句:select * from None where None = "None",异常:(1146, "Table 'testbase.none' doesn't exist")

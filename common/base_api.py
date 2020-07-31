@@ -36,7 +36,7 @@ class SQL(object):
         logger.success('关闭数据库成功')
 
     @logger.catch()
-    def select_one(self, table_name='testcase', field_name='case_id', value_name='1'):
+    def select_one(self, table_name=None, field_name=None, value_name=None):
         cursors = self.creat_connect()
         sql = 'select * from %s where %s = "%s"' % (table_name, field_name, value_name)
         try:
@@ -53,7 +53,7 @@ class SQL(object):
             self.close_base()
 
     @logger.catch()
-    def select_all(self, table_name='testcase'):
+    def select_all(self, table_name=None):
         cursors = self.creat_connect()
         sql = 'select * from %s' % table_name
         try:
@@ -72,5 +72,5 @@ class SQL(object):
 
 if __name__ == '__main__':
     SQL().select_one(table_name='testcase_cjxm', field_name='case_id', value_name='1')
-    SQL().select_all()
+    SQL().select_one()
     SQL().select_all(table_name="testcase_cjxm")
