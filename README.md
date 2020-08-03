@@ -90,6 +90,7 @@ def auto_request(url, method, body=None, headers=None, files=None, allow_redirec
 ## base_api.py代码片段
 
 `select_one()`：需要传入表名、字段、值，函数会返回在数据库查询到的数据  
+`select_all()`：传入表名，函数会返回在数据库表的所有数据  
 
 ``` python 
 def select_one(self, table_name=None, field_name=None, value_name=None):
@@ -104,6 +105,21 @@ def select_one(self, table_name=None, field_name=None, value_name=None):
             result = cursors.fetchall()
             logger.success('数据库返回查询数据:{result}', result=result)
             return result
+        finally:
+            cursors.close()
+            self.close_base()
+def select_all(self, table_name=None):
+        cursors = self.creat_connect()
+        sql = 'select * from %s' % table_name
+        try:
+            cursors.execute(sql)
+            logger.success('执行查询SQL语句:{sql}', sql=sql)
+        except BaseException as e:
+            logger.warning('SQL语句执行异常，请检查SQL语句:{sql},异常:{e}', sql=sql, e=e)
+        else:
+            all_result = cursors.fetchall()
+            logger.success('数据库返回查询数据:{all_result}', all_result=all_result)
+            return all_result
         finally:
             cursors.close()
             self.close_base()
@@ -134,7 +150,7 @@ logger.add(debug_logs_path,
 取出的数据传入auto_request  
 断言响应数据和断言是否一致  
 
-> **注意：**数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败  
+> 注意：数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败  
 
 ```python 
 sql = SQL().select_all(table_name='testcase_cjxm')
