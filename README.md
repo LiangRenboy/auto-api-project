@@ -133,7 +133,7 @@ logger.add(debug_logs_path,
 从数据库取数据  
 取出的数据传入auto_request  
 断言响应数据和断言是否一致  
-> **注意：**注意数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败
+> **注意：**数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败
 
 ```python 
 sql = SQL().select_all(table_name='testcase_cjxm')
@@ -167,7 +167,7 @@ if __name__ == '__main__':
 
 - 需要python基础  
 - 能基本使用`unittest`框架
-- 安装了**[mysql数据库](https://dev.mysql.com/downloads/mysql/)**，能基本操作数据库数据  
+- 安装了 **[mysql数据库](https://dev.mysql.com/downloads/mysql/)** ，能基本操作数据库数据  
 
 ### 1、数据库运行common/testcase.sql脚本  
 ### 2、在testcase文件夹添加py文件，编写测试用例脚本
