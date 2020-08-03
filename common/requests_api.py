@@ -11,6 +11,17 @@ if url_head == '':
 
 @logger.catch()
 def auto_request(url, method, body=None, headers=None, files=None, allow_redirects=True, timeout=5):
+    """
+    请求接口方法
+    :param url:只需传入资源路径，无需输入域名地址
+    :param method:接口去请求方法，只支持GET、POST方法
+    :param body:接口请求参数，会根据方法请求参数，自动选择params或data
+    :param headers:信息头
+    :param files:传入文件
+    :param allow_redirects:重定向
+    :param timeout:超时
+    :return:返回响应内容
+    """
     all_url = str(url_head) + str(url)
     global get_response
     global post_response
@@ -38,6 +49,7 @@ def auto_request(url, method, body=None, headers=None, files=None, allow_redirec
             return post_response.json()
     finally:
         logger.info('接口执行完毕')
+        logger.debug('接口执行完毕')
 
 
 if __name__ == '__main__':

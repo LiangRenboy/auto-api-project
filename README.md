@@ -33,7 +33,7 @@
 	> **注意**：**读写操作时需分开进行**，不能用同一个实例，否则会重复写入之前配置文件中存在的内容。
 	- **requests_api.py**：增加auto_request，更适用项目
 - **logs文件夹**：存放日志系统和项目日志
-	- **logsfile.py**：配置info日志和error日志存放目录和相关配置信息
+	- **logsfile.py**：配置日志存放目录和日志相关信息
 - **report文件夹**：测试报告放置在这里
 - **template文件夹**：存放用例中用到的文件或图片
 - **HtmlTestRunner_PY文件夹**：放置测试报告类
@@ -41,6 +41,10 @@
 - **configfile.ini**：项目相关配置文件 
 - **run.py**：程序运行主文件，运行main函数
 
+# 数据库表结构
+|caseid|casenum|title|
+|:----:|:-----:|:---:|
+|  12  |  345  |  6  |
 
 ## requests_api.py
 
@@ -105,17 +109,38 @@ def select_one(self, table_name=None, field_name=None, value_name=None):
 
 ## logsfile.py代码片段
 
-`info_logs_path`：传入日志路径  
+`debug_logs_path`：传入日志路径  
 `filter`：设置日志等级  
-`enqueue`：支持异步写入
+`enqueue`：支持异步写入  
+`rotation`：每天0点日志写入新文件  
+`retention`：日志保留时间
 
-```python
-logger.add(info_logs_path,
-           filter=lambda x: x['level'].name > 'ERROR',
-           # level='INFO',
+```python 
+logger.add(debug_logs_path,
+           filter=lambda x: x['level'].name == 'DEBUG',
            enqueue=True,
            rotation='00:00',
            encoding='utf-8',
            retention='30 days'
            )
+```
+
+## testcase/test_CJXM.py.py
+
+```python 
+sql = SQL().select_all(table_name='testcase_cjxm')
+class TestCJXM(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        pass
+    @classmethod
+    def tearDownClass(cls):
+        pass
+    def test_ZCJK(self):
+        url = sql[0]['url']
+        method = sql[0]['method']
+        body = eval(sql[0]['body'])
+        assertion = eval(sql[0]['assert'])
+        result = auto_request(url=url, method=method, body=body)
+        self.assertEqual(result['error_code'], assertion[0]['error_code'] or assertion[1]['error_code'])
 ```
