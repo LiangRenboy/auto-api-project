@@ -12,26 +12,26 @@
 
 ### 3、使用unittest框架编写接口测试用例
 
-    - 调用封装的数据库方法取数据库数据
-    - 数据传入requests封装方法中
-    - 断言：响应数据是否和存在数据库中的断言字段一致，判断用例是否通过依据
+   - 调用封装的数据库方法取数据库数据
+   - 数据传入requests封装方法中
+   - 断言：响应数据是否和存在数据库中的断言字段一致，判断用例是否通过依据
 
 ### 4、执行用例
 
-### 5、HtmlTestRunner模块生成测试报告
+### 5、HtmlTestRunner_PY模块生成测试报告
 
 ### 6、准备数据（接口自动化前）、清理数据（接口自动化后）
 
 -------------------
 
-> **注意：**虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，**请务必经常及时同步到印象笔记**。
-
 # 文件目录
+
 - **commnon文件夹**：公共使用的类
     - **base_api.py**：连接数据库，读取数据库表数据
 	- **readConfig.py**：读写configfile.ini文件配置信息
 	> **注意**：**读写操作时需分开进行**，不能用同一个实例，否则会重复写入之前配置文件中存在的内容。
 	- **requests_api.py**：增加auto_request，更适用项目
+	- **testcase.sql**：数据库脚本，附带了点数据
 - **logs文件夹**：存放日志系统和项目日志
 	- **logsfile.py**：配置日志存放目录和日志相关信息
 - **report文件夹**：测试报告放置在这里
@@ -42,26 +42,17 @@
 - **run.py**：程序运行主文件，运行main函数
 
 # 数据库表结构
-`case_id`：测试用例ID  
-`case_num`：测试用例编号  
-`title`：测试用例标题  
-`url`：接口url资源地址  
-`method`：接口请求方法  
-`body`：接口参数  
-`headers`：请求头  
-`assert`：断言  
-`status`：接口状态码  
-`token`：存放cookies
 
-|case_id  |case_num - |title     |url        |method    |body   |headers|assert|status  |token      |
+|case_id  |case_num   |title     |url        |method    |body   |headers|assert|status  |token      |
 |:-------:|:---------:|:--------:|:---------:|:--------:|:-----:|:-----:|:----:|:------:|:---------:|
 |测试用例ID|测试用例编号|测试用例标题|接口资源地址|接口请求方法|接口参数|请求头  |断言  |接口状态码|存放cookies|
 
 ## requests_api.py
 
 `@logger.catch()`：捕获运行中的异常写入error日志文件  
-**url**：根据配置文件主机地址加上资源路径，所以`auto_request()`函数**url只需传入资源路径**  
+
 `auto_request()`：需要传入url、method、body，函数会根据method方法判断接口请求方式  
+> **注意：**`url`根据配置文件主机地址加上资源路径，所以`auto_request()`函数**url只需传入资源路径**  
 
 
 ``` python 
@@ -136,22 +127,54 @@ logger.add(debug_logs_path,
            )
 ```
 
-## testcase/test_CJXM.py.py
+## testcase/test_CJXM.py
+
+用例模板：  
+从数据库取数据  
+取出的数据传入auto_request  
+断言响应数据和断言是否一致  
+> **注意：**注意数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败
 
 ```python 
 sql = SQL().select_all(table_name='testcase_cjxm')
-class TestCJXM(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        pass
-    @classmethod
-    def tearDownClass(cls):
-        pass
-    def test_ZCJK(self):
-        url = sql[0]['url']
-        method = sql[0]['method']
-        body = eval(sql[0]['body'])
-        assertion = eval(sql[0]['assert'])
-        result = auto_request(url=url, method=method, body=body)
-        self.assertEqual(result['error_code'], assertion[0]['error_code'] or assertion[1]['error_code'])
+def test_ZCJK(self):
+    url = sql[0]['url']
+    method = sql[0]['method']
+    body = eval(sql[0]['body'])
+    assertion = eval(sql[0]['assert'])
+    result = auto_request(url=url, method=method, body=body)
+    self.assertEqual(result['error_code'], assertion[0]['error_code'] or assertion[1]['error_code'])
 ```
+
+## run.py
+
+`output`：测试报告存放路径  
+`stream`：测试报告文件流  
+`report_title`：测试报告标题  
+`descriptions`：测试报告描述
+
+``` python 
+if __name__ == '__main__':
+    one_file_path = report_path + '\\' + file_name
+    fp = open(one_file_path, 'a', encoding='utf-8')
+    one_run = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
+    one_run.run(one_test_case)
+    fp.close()
+```
+
+-------------------
+# 使用说明
+
+- 需要python基础  
+- 能基本使用`unittest`框架
+- 安装了**[mysql数据库](https://dev.mysql.com/downloads/mysql/)**，能基本操作数据库数据  
+
+### 1、数据库运行common/testcase.sql脚本  
+### 2、在testcase文件夹添加py文件，编写测试用例脚本
+   - 编写unittest基本框架内容  
+   - 导入common/base_api.py  
+   - 导入common/requests_api.py  
+   - 编写用例方法，使用`select_one()`、`select_all()`方法查询数据库数据，请求`auto_request()`传入数据库查询的数据
+### 3、运行run.py文件  
+### 4、report目录下查看测试报告
+-------------------

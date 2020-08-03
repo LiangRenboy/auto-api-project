@@ -49,7 +49,6 @@ def auto_request(url, method, body=None, headers=None, files=None, allow_redirec
             return post_response.json()
     finally:
         logger.info('接口执行完毕')
-        logger.debug('接口执行完毕')
 
 
 if __name__ == '__main__':
