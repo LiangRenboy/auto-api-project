@@ -133,7 +133,8 @@ logger.add(debug_logs_path,
 从数据库取数据  
 取出的数据传入auto_request  
 断言响应数据和断言是否一致  
-> **注意：**数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败
+
+> **注意：**数据库取出来的断言数据类型是否和响应数据类型一致，否则会断言失败  
 
 ```python 
 sql = SQL().select_all(table_name='testcase_cjxm')
