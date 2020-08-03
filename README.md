@@ -1,7 +1,7 @@
 # auto_api
 # 接口自动化全篇
 
-**[csdn博客](https://blog.csdn.net/qq_42795860)**
+本篇同步到**[csdn博客](https://blog.csdn.net/qq_42795860)**
 
 -------------------
 ### 整体思路
