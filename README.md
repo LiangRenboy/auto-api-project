@@ -42,9 +42,20 @@
 - **run.py**：程序运行主文件，运行main函数
 
 # 数据库表结构
-|caseid|casenum|title|
-|:----:|:-----:|:---:|
-|  12  |  345  |  6  |
+`case_id`：测试用例ID  
+`case_num`：测试用例编号  
+`title`：测试用例标题  
+`url`：接口url资源地址  
+`method`：接口请求方法  
+`body`：接口参数  
+`headers`：请求头  
+`assert`：断言  
+`status`：接口状态码  
+`token`：存放cookies
+
+|case_id  |case_num - |title     |url        |method    |body   |headers|assert|status  |token      |
+|:-------:|:---------:|:--------:|:---------:|:--------:|:-----:|:-----:|:----:|:------:|:---------:|
+|测试用例ID|测试用例编号|测试用例标题|接口资源地址|接口请求方法|接口参数|请求头  |断言  |接口状态码|存放cookies|
 
 ## requests_api.py
 
