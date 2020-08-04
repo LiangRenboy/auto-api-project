@@ -29,13 +29,13 @@ if __name__ == '__main__':
     """第二种测试报告"""
     two_file_path = report_path + '\\' + file_name
     with open(two_file_path, 'wb') as report:
-        two_runner = HTMLTestRunner_PY3.HTMLTestRunner(stream=report, title='测试报告', description='用例执行情况')
+        two_runner = HTMLTestRunner_PY2.HTMLTestRunner(stream=report, title='测试报告', description='用例执行情况')
         two_runner.run(two_test_case)
 
     """第三种测试报告"""
     three_file_path = report_path + '\\' + now_time + '_all_result.html'
     with open(three_file_path, 'wb') as pyreport:
-        three_runner = HTMLTestRunner_PY2.HTMLTestRunner(stream=pyreport, title='测试报告', description='用例执行情况')
+        three_runner = HTMLTestRunner_PY3.HTMLTestRunner(stream=pyreport, title='测试报告', description='用例执行情况')
         three_runner.run(three_test_case)
 
 

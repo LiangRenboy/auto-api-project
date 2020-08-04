@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 A TestRunner for use with the Python unit testing framework. It
 generates a HTML report to show the result at a glance.
@@ -63,7 +64,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
 # URL: http://tungwaiyip.info/software/HTMLTestRunner.html
-import io
 
 __author__ = "Wai Yip Tung"
 __version__ = "0.9.1"
@@ -101,16 +101,11 @@ Version in 0.7.1
 
 import datetime
 import sys
+import io
 import time
-from functools import wraps
 import unittest
 from xml.sax import saxutils
-PY3K = (sys.version_info[0] > 2)
-if PY3K:
-    import io as StringIO
-else:
-    import StringIO
-import copy
+
 
 # ------------------------------------------------------------------------
 # The redirectors below are used to capture output during testing. Output
@@ -186,9 +181,9 @@ class Template_mixin(object):
     """
 
     STATUS = {
-        0: '通过',
-        1: '失败',
-        2: '错误',
+        0: u'通过',
+        1: u'失败',
+        2: u'错误',
     }
 
     DEFAULT_TITLE = 'Unit Test Report'
@@ -204,13 +199,15 @@ class Template_mixin(object):
     <title>%(title)s</title>
     <meta name="generator" content="%(generator)s"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    %(stylesheet)s
+    
     <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <script type="text/javascript" src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common..min.js"></script>-->
     <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js"></script>
+    <!-- <script type="text/javascript" src="js/echarts.common.min.js"></script> -->
+    
+    %(stylesheet)s
+    
 </head>
 <body>
-
     <script language="javascript" type="text/javascript"><!--
     output_list = Array();
 
@@ -289,6 +286,7 @@ class Template_mixin(object):
         s = s.replace(/>/g,'&gt;');
         return s;
     }
+
     /* obsoleted by detail in <div>
     function showOutput(id, name) {
         var w = window.open("", //url
@@ -310,136 +308,58 @@ class Template_mixin(object):
         %(report)s
         %(ending)s
         %(chart_script)s
-
     </div>
 </body>
 </html>
 """  # variables: (title, generator, stylesheet, heading, report, ending, chart_script)
 
     ECHARTS_SCRIPT = """
-        <script type="text/javascript">
-        var myChartline = echarts.init(document.getElementById('chartline'));
-        var optionline = {
-                tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    crossStyle: {
-                        color: '#999'
-                    }
-                }
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title : {
+                text: '测试执行情况',
+                x:'center'
             },
-            toolbox: {
-                feature: {
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%%)"
             },
+            color: ['#95b75d', 'grey', '#b64645'],
             legend: {
-                data:['错误','成功','失败']
+                orient: 'vertical',
+                left: 'left',
+                data: ['通过','失败','错误']
             },
-            xAxis: [
+            series : [
                 {
-                    type: 'category',
-                    data: [' 第一次','第二次','第三次','第四次','第五次','第六次','第七次','第八次','第九次','第十次'],
-                    axisPointer: {
-                        type: 'shadow'
+                    name: '测试执行情况',
+                    type: 'pie',
+                    radius : '60%%',
+                    center: ['50%%', '60%%'],
+                    data:[
+                        {value:%(Pass)s, name:'通过'},
+                        {value:%(fail)s, name:'失败'},
+                        {value:%(error)s, name:'错误'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    name: '用例条数',
-                    min: 0,
-                    max: 100,
-                    interval: 10,
-                    axisLabel: {
-                        formatter: '{value} 条'
-                    }
-                },
-                {
-                    type: 'value',
-                    name: '用例条数',
-                    min: 0,
-                    max: 100,
-                    interval: 10,
-                    axisLabel: {
-                        formatter: '{value} 条'
-                    }
-                }
-            ],
-            series: [
-                {
-                    name:'成功',
-                    type:'bar',
-                    data:[%(Pass)s]
-                //data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
-                },
-                {
-                    name:'失败',
-                    type:'bar',
-                    data:[%(fail)s]
-                },
-                {
-                    name:'错误',
-                    type:'bar',
-                    yAxisIndex: 1,
-                    data:[%(error)s]
-                    //data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
                 }
             ]
         };
-        myChartline.setOption(optionline);
-        console.log(%(fail)s,%(Pass)s,%(error)s)
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('chart'));
 
-            // 指定图表的配置项和数据
-            var option = {
-                title : {
-                    text: '测试执行情况',
-                    x:'center'
-                },
-                tooltip : {
-                    trigger: 'item',
-                    formatter: "{a} <br/>{b} : {c} ({d}%%)"
-                },
-                legend: {
-                    orient: 'vertical',
-                    left: 'left',
-                    data: ['通过','失败','错误']
-                },
-                series : [
-                    {
-                        name: '测试执行情况',
-                        type: 'pie',
-                        radius : '60%%',
-                        center: ['50%%', '60%%'],
-                        data:[
-                            {value:%(Pass)s, name:'通过'},
-                            {value:%(fail)s, name:'失败'},
-                            {value:%(error)s, name:'错误'}
-                        ],
-                        itemStyle: {
-                            emphasis: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            }
-                        }
-                    }
-                ]
-            };
-
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
-        </script>
-    """
-
-    # variables: (Pass, fail, error)
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    """  # variables: (Pass, fail, error)
 
     # ------------------------------------------------------------------------
     # Stylesheet
@@ -449,7 +369,7 @@ class Template_mixin(object):
 
     STYLESHEET_TMPL = """
 <style type="text/css" media="screen">
-    body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+    body        { font-family: Microsoft YaHei,Consolas,arial,sans-serif; font-size: 80%; }
     table       { font-size: 100%; }
     pre         { white-space: pre-wrap;word-wrap: break-word; }
 
@@ -488,7 +408,7 @@ class Template_mixin(object):
         top: 0px;
         /*border: solid #627173 1px; */
         padding: 10px;
-        /* */
+        /*background-color: #E6E6D6; */
         font-family: "Lucida Console", "Courier New", Courier, monospace;
         text-align: left;
         font-size: 8pt;
@@ -507,7 +427,7 @@ class Template_mixin(object):
     #header_row {
         font-weight: bold;
         color: #303641;
-        
+        background-color: #ebebeb;
     }
     #total_row  { font-weight: bold; }
     .passClass  { background-color: #bdedbc; }
@@ -545,9 +465,8 @@ class Template_mixin(object):
         <h1>%(title)s</h1>
     %(parameters)s
     </div>
-    <!--<div style="float: left;width:50%%;"><p class='description'>%(description)s</p></div>-->
-    <div id="chartline" style="width:50%%;height:400px;float:left;"></div>
-    <div id="chart"style="width:50%%;height:400px;float:right;"></div>
+    <div style="float: left;width:50%%;"><p class='description'>%(description)s</p></div>
+    <div id="chart" style="width:50%%;height:400px;float:left;"></div>
 """  # variables: (title, parameters, description)
 
     HEADING_ATTRIBUTE_TMPL = """<p class='attribute'><strong>%(name)s:</strong> %(value)s</p>
@@ -557,17 +476,11 @@ class Template_mixin(object):
     # Report
     #
 
-    REPORT_TMPL = """
+    REPORT_TMPL = u"""
     <div class="btn-group btn-group-sm">
-         <!-- <button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button> -->
-        <!--<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>-->
-        <!--<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>-->
-        <a class="btn btn-primary" onclick='javascript:showCase(0)'>概要 %(passrate)s </a>
-        <a class="btn btn-warning" onclick='javascript:showCase(4)'>错误 %(error)s </a>
-        <a class="btn btn-danger" onclick='javascript:showCase(1)'>失败  %(fail)s </a>
-        <a class="btn btn-success" onclick='javascript:showCase(2)'>通过 %(Pass)s </a>
-        <a class="btn btn-info" onclick='javascript:showCase(3)'>所有 %(count)s </a>  
-
+        <button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+        <button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+        <button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
     </div>
     <p></p>
     <table id='result_table' class="table table-bordered">
@@ -586,7 +499,6 @@ class Template_mixin(object):
             <td>失败</td>
             <td>错误</td>
             <td>查看</td>
-            <th>错误截图</th>
         </tr>
         %(test_list)s
         <tr id='total_row'>
@@ -596,7 +508,6 @@ class Template_mixin(object):
             <td>%(fail)s</td>
             <td>%(error)s</td>
             <td>&nbsp;</td>
-            <th>&nbsp;</th>
         </tr>
     </table>
 """  # variables: (test_list, count, Pass, fail, error)
@@ -609,7 +520,6 @@ class Template_mixin(object):
         <td>%(fail)s</td>
         <td>%(error)s</td>
         <td><a href="javascript:showClassDetail('%(cid)s',%(count)s)">详情</a></td>
-        <td>&nbsp;</td>
     </tr>
 """  # variables: (style, desc, count, Pass, fail, error, cid)
 
@@ -623,9 +533,7 @@ class Template_mixin(object):
         %(status)s</a>
 
     <div id='div_%(tid)s' class="popup_window">
-        <pre>
-        %(script)s
-        </pre>
+        <pre>%(script)s</pre>
     </div>
     <!--css div popup end-->
 
@@ -641,14 +549,7 @@ class Template_mixin(object):
 """  # variables: (tid, Class, style, desc, status)
 
     REPORT_TEST_OUTPUT_TMPL = r"""%(id)s: %(output)s"""  # variables: (id, output)
-    IMG_TMPL = r"""
-            <a href="#"  onclick="show_img(this)">显示截图</a>
-        <div align="center" class="screenshots"  style="display:none;z-index:2000">
-            <a class="close_shots"  href="#"   onclick="hide_img(this)"></a>
-            %(imgs)s
-            <div class="imgyuan"></div>
-        </div>
-        """
+
     # ------------------------------------------------------------------------
     # ENDING
     #
@@ -656,15 +557,7 @@ class Template_mixin(object):
     ENDING_TMPL = """<div id='ending'>&nbsp;</div>"""
 
 # -------------------- The end of the Template class -------------------
-    def __getattribute__(self, item):
-        value = object.__getattribute__(self, item)
-        if PY3K:
-            return value
-        else:
-            if isinstance(value, str):
-                return value.decode("utf-8")
-            else:
-                return value
+
 
 TestResult = unittest.TestResult
 
@@ -753,15 +646,6 @@ class _TestResult(TestResult):
         _, _exc_str = self.failures[-1]
         output = self.complete_output()
         self.result.append((1, test, output, _exc_str))
-        # 截图
-        # if not getattr(test, "driver", ""):
-        #     pass
-        # else:
-        #     try:
-        #         driver = getattr(test, "driver")
-        #         test.imgs.append(driver.get_screenshot_as_base64())
-        #     except Exception as e:
-        #         pass
         if self.verbosity > 1:
             sys.stderr.write('F  ')
             sys.stderr.write(str(test))
@@ -836,9 +720,7 @@ class HTMLTestRunner(Template_mixin):
         test(result)
         self.stopTime = datetime.datetime.now()
         self.generateReport(test, result)
-
         print('\nTime Elapsed: %s' % (self.stopTime-self.startTime), file=sys.stderr)
-
         return result
 
     def sortResult(self, result_list):
@@ -863,17 +745,17 @@ class HTMLTestRunner(Template_mixin):
         startTime = str(self.startTime)[:19]
         duration = str(self.stopTime - self.startTime)
         status = []
-        if result.success_count: status.append('通过 %s' % result.success_count)
-        if result.failure_count: status.append('失败 %s' % result.failure_count)
-        if result.error_count:   status.append('错误 %s' % result.error_count  )
+        if result.success_count: status.append(u'通过 %s' % result.success_count)
+        if result.failure_count: status.append(u'失败 %s' % result.failure_count)
+        if result.error_count:   status.append(u'错误 %s' % result.error_count  )
         if status:
             status = ' '.join(status)
         else:
             status = 'none'
         return [
-            ('开始时间', startTime),
-            ('运行时长', duration),
-            ('状态', status),
+            (u'开始时间', startTime),
+            (u'运行时长', duration),
+            (u'状态', status),
         ]
 
     def generateReport(self, test, result):
@@ -891,11 +773,10 @@ class HTMLTestRunner(Template_mixin):
             heading = heading,
             report = report,
             ending = ending,
-            chart_script = chart,
-
+            chart_script = chart
         )
         self.stream.write(output.encode('utf8'))
-        #self.stream.write(output)
+
     def _generate_stylesheet(self):
         return self.STYLESHEET_TMPL
 
@@ -953,10 +834,6 @@ class HTMLTestRunner(Template_mixin):
             Pass = str(result.success_count),
             fail = str(result.failure_count),
             error = str(result.error_count),
-            # 统计全部的
-            passrate=str("%.2f%%" % (float(result.success_count) /
-                                     float(result.success_count + result.failure_count + result.error_count) * 100)
-                         ),
         )
         return report
 
@@ -973,53 +850,14 @@ class HTMLTestRunner(Template_mixin):
         has_output = bool(o or e)
         tid = (n == 0 and 'p' or 'f') + 't%s.%s' % (cid+1,tid+1)
         name = t.id().split('.')[-1]
-        if self.verbosity > 1:
-            doc = t._testMethodDoc or ''
-        else:
-            doc = ""
-
-        # doc = t.shortDescription() or ""
+        doc = t.shortDescription() or ""
         desc = doc and ('%s: %s' % (name, doc)) or name
-        if not PY3K:
-            if isinstance(desc, str):
-                desc = desc.decode("utf-8")
         tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL
-        tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL
-        if isinstance(o, str):
-            # uo = unicode(o.encode('string_escape'))
-            if PY3K:
-                uo = o
-            else:
-                uo = o.decode('utf-8', 'ignore')
-        else:
-            uo = o
-        if isinstance(e, str):
-            # ue = unicode(e.encode('string_escape'))
-            if PY3K:
-                ue = e
-            elif e.find("Error") != -1 or e.find("Exception") != -1:
-                es = e.decode('utf-8', 'ignore').split('\n')
-                es[-2] = es[-2].decode('unicode_escape')
-                ue = u"\n".join(es)
-            else:
-                ue = e.decode('utf-8', 'ignore')
-        else:
-            ue = e
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             id=tid,
             output=saxutils.escape(o+e),
         )
-        if getattr(t,'imgs',[]):
-            # 判断截图列表，如果有则追加
-            tmp = u""
-            for i, img in enumerate(t.imgs):
-                if i==0:
-                    tmp+=""" <img src="data:image/jpg;base64,%s" style="display: block;" class="img"/>\n""" % img
-                else:
-                    tmp+=""" <img src="data:image/jpg;base64,%s" style="display: none;" class="img"/>\n""" % img
-            imgs = self.IMG_TMPL % dict(imgs=tmp)
-        else:
-            imgs = u"""无截图"""
 
         row = tmpl % dict(
             tid=tid,
@@ -1028,7 +866,6 @@ class HTMLTestRunner(Template_mixin):
             desc=desc,
             script=script,
             status=self.STATUS[n],
-            img=imgs,
         )
         rows.append(row)
         if not has_output:
