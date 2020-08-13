@@ -1,7 +1,7 @@
 import os
 import time
 import unittest
-from HtmlTestRunner import HTMLTestRunner
+from HtmlTestRunner_PY.HtmlTestRunner import HTMLTestRunner
 from HtmlTestRunner_PY import HTMLTestRunner_PY2
 from HtmlTestRunner_PY import HTMLTestRunner_PY3
 
