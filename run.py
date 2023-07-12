@@ -22,7 +22,7 @@ if __name__ == '__main__':
     """第一种测试报告"""
     one_file_path = report_path + '\\' + file_name
     fp = open(one_file_path, 'a', encoding='utf-8')
-    one_run = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告', descriptions='用例执行情况')
+    one_run = HTMLTestRunner(output=report_path, stream=fp, report_title='测试报告')
     one_run.run(one_test_case)
     fp.close()
 
